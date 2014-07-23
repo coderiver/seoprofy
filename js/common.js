@@ -1,8 +1,13 @@
 head.ready(function() {
 
-	// $(document).on("click", function(){
-	// 	$(".js-popup").hide();
-	// });
+	
+// portfolio-slider
+	
+	$('.js-portfolio-slider').slick({
+		dots: true,
+		infinite: true,
+		slidesToShow: 3,
+		slidesToScroll: 3
+	});
 
-	console.log($('body').html());
 });

@@ -1,55 +1,294 @@
-// # SHORT HOWTO
-// ## Sprites
-//     .whatever
-//          +sized-sprite($icons, coderiver) //or
-// 			+s(codedby) //gets default value for spritemap as $icons
-// ### animation example
-//     +include keyframes(rotate)
-//        from
-//           +rotate(0)
-//        to
-//           +rotate(360)
-// ## animation usage
-//     body:hover
-// 	    +animation(rotate 200s linear infinite)
-// ## animations easing, see easings.net for full list and examples, tnx @ai
-//     transition: all 1.2s ceaser($ease-in)
-// ## gradient example
-//     +background-image(linear-gradient(#232323, #5c5c5c));
-//     +g(#232323, #5c5c5c);
-//	   horizontal
-//     +gh(#232323, #5c5c5c);
-// ## making bw-images
-//     img
-//			@extend %gray
-// ## predefined media-queries: https://github.com/paranoida/sass-mediaqueries
-//     +min-screen(320)
-//			display: none
-// +max-screen(1000), +iphone5, +iphone4, +ipad-retina, +ipad, +hdpi - also available
-//
-// ## use cycles
-//     @for $i from 1 through 3
-//       .item-#{$i}
-//			width: 2em * $i;
-//     @each $s in a,b,c
-// 	    	#{$s}
-//				display: none
-// ## fonts 
-// Save fonts to /css/fonts, after that write (eot, woff, ttf):
-// +font(book, cytiapro-black-webfont)  
-// =book
-// 	font-family: "book", Arial, sans-serif 
-// insert pics into css
-// div
-// 	+pic("blabla.png")
-// span
-// 	+png(blabla)
-// p
-// 	+jpg(bla)
-body
-	font-family: Arial, sans-serif 
-	font-size: 12px 
-	line-height: 1.4
+// fonts 
 
++font(museosanscyrl-300, exljbris_-_museosanscyrl-300-webfont)  
+=museo300
+	font-family: "museosanscyrl-300", Arial, sans-serif
++font(museosanscyrl-300, exljbris_-_museosanscyrl-500-webfont)  
+=museo500
+	font-family: "museosanscyrl-500", Arial, sans-serif
++font(museosanscyrl-300, exljbris_-_museosanscyrl-700-webfont)  
+=museo700
+	font-family: "museosanscyrl-700", Arial, sans-serif	
+
+body
+	+museo500 
+	font-size: 14px 
+	line-height: 1.4
+	color: #5b5e60
+
+=justify
+	text-align: justify
+	line-height: 0
+	font-size: 1px
+	text-justify: newspaper
+	zoom: 1
+	text-align-last: justify
+	&:after
+		content: ""
+		display: inline-block
+		width: 100%
+		height: 0px
+		visibility: hidden
+		overflow: hidden
+=justify-child
+	display: inline-block
+	line-height: normal
+	vertical-align: top
+	font-size: 14px
+	
+$blue: #5ab1be
 
 // common blocks      
+.wrap
+	width: 1024px
+	margin: 0 auto
+	+clr
+.h1
+	margin-bottom: 40px
+	color: #231f20
+	font-size: 40px
+	font-weight: normal
+.l-center
+	text-align: center
+.title
+	position: relative
+	top: 16px
+	display: inline-block
+	border-radius: 4px
+	margin-top: -16px
+	background: #404040
+	padding: 9px 20px
+	+museo700
+	color: #fff
+	text-transform: uppercase
+	&:before
+		content: ""
+		position: absolute
+		bottom: -7px
+		left: 50%
+		margin-left: -7px
+		+arr(14, 7, #404040, b)   
+.blue-bg
+	background: $blue
+	color: #fff 	
+.header
+	position: relative
+	height: 157px
+	&__inner
+		position: fixed
+		top: 0
+		left: 0
+		right: 0
+		background: #fff
+		z-index: 9
+	&__topper
+		+clr
+		height: 118px 
+	&__menu
+		padding: 4px 0  	
+.logo
+	float: left
+	padding-top: 13px
+	margin-right: 35px
+	a
+		display: inline-block
+		vertical-align: middle
+		+s(logo)
+	span
+		display: inline-block
+		vertical-align: middle
+		text-transform: uppercase
+		color: #404040
+		font-size: 12px
+.phone
+	float: left
+	padding-top: 43px
+	+vertical
+	i, span
+		display: inline-block
+		vertical-align: middle
+	i
+		margin-right: 10px
+		+s(phone)
+	span	
+		font-size: 25px
+		color: #231f20
+		+museo300
+.socials
+	float: left
+	padding-top: 43px
+	font-size: 0
+	li
+		display: inline-block
+		vertical-align: middle
+		margin-left: 23px 
+		a
+			display: block
+			width: 40px
+			height: 40px 
+			border-radius: 50%
+			background: #eff6f7
+			+vertical
+			i
+				display: inline-block
+				vertical-align: middle
+				&.fb
+					+s(fb)
+				&.tw
+					+s(tw)
+				&.gp
+					+s(gp)
+				&.vk
+					+s(vk)
+.lang
+	float: right
+	height: 21px
+	margin-top: 54px
+	border-radius: 4px
+	border: 1px solid #d2d2d2
+	&__flag
+		float: right
+		width: 32px
+		margin-right: -1px 
+		font-size: 0
+		border-radius: 4px 0 0 4px
+		border-left: 1px solid #d2d2d2
+		i
+			display: inline-block
+			border-radius: 4px
+			&.rus-flag
+				+s(rus-flag)
+	&__adress
+		float: left
+		padding: 3px 12px 0 7px 
+		font-size: 11px
+.menu
+	+justify
+	li
+		+justify-child
+	&__link
+		display: block
+		+box
+		height: 31px
+		line-height: 31px
+		padding: 0 15px 
+		border-radius: 4px
+		border: 1px solid transparent
+		font-family: 'Ubuntu', Arial, sans-serif
+		color: #fff
+		font-size: 13px
+		text-transform: uppercase
+		text-decoration: none
+		+tr(all 200ms)
+		&:hover
+			border-color: #fff
+		&.is-active
+			border-color: #fbef89
+			background: #fbef89
+			font-weight: bold
+			color: #404040
+			
+// about-us
+.about-us
+	padding: 43px 0 96px
+	&__inner
+		+clr
+	&__left
+		float: left
+		width: 455px
+	&__video
+		border-radius: 4px
+		height: 248px
+		overflow: hidden
+		margin-bottom: 40px
+		iframe
+			border: 2px solid #000
+			border-radius: 6px!important	
+	&__right
+		float: right
+		width: 522px
+	&__text
+		p
+			margin-bottom: 20px
+		h3
+			margin-bottom: 20px
+			font-size: 25px
+			+museo700
+			font-weight: normal
+		ul
+			margin-bottom: 20px
+			li
+				position: relative
+				padding-left: 15px
+				&:before
+					content: ""
+					position: absolute
+					top: 7px
+					left: 0
+					width: 5px
+					height: 5px
+					border-radius: 50%
+					background: #f93e3e  	 	
+.google
+	+clr
+	border: 1px solid #d2d2d2
+	border-radius: 4px
+	&__img
+		float: left
+		font-size: 0
+		margin: -1px 0 -1px -1px 
+	&__text
+		float: right
+		width: 285px
+		color: #5b5e60
+		padding-top: 9px
+		
+//portfolio
+.portfolio
+	position: relative
+	&__slider
+		padding: 57px 0 19px
+.video
+	width: 310px
+	height: 168px
+	iframe
+		border-radius: 6px
+		border: 2px solid #000
+.slick-prev
+	position: absolute
+	top: 50%
+	left: -48px
+	width: 34px
+	height: 34px
+	margin-left: -17px
+	border-radius: 50%
+	border: 2px solid #fff
+	background: transparent  
+	font-size: 0
+	&:before
+		content: ""
+		position: absolute
+		top: 7px
+		left: 9px
+		+s(arr-left)
+.slick-next
+	position: absolute
+	top: 50%
+	right: -48px
+	width: 34px
+	height: 34px
+	margin-right: -17px
+	border-radius: 50%
+	border: 2px solid #fff
+	background: transparent  
+	font-size: 0
+	&:before
+		content: ""
+		position: absolute
+		top: 7px
+		right: 9px
+		+s(arr-right) 		 				 
+
+
+		 
+	
