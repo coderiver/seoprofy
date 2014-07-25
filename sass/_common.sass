@@ -14,6 +14,7 @@
 	font-family: "MuseoSansCyrl900", Arial, sans-serif		
 
 body
+	min-width: 1024px
 	+museo500 
 	font-size: 14px 
 	line-height: 1.4
@@ -140,12 +141,20 @@ $blue: #5ab1be
 				vertical-align: middle
 				&.fb
 					+s(fb)
+					.footer &
+						+s(fb-white)
 				&.tw
 					+s(tw)
+					.footer &
+						+s(tw-white)
 				&.gp
 					+s(gp)
+					.footer &
+						+s(gp-white)
 				&.vk
 					+s(vk)
+					.footer &
+						+s(vk-white)
 .lang
 	float: right
 	height: 21px
@@ -252,6 +261,7 @@ $blue: #5ab1be
 //portfolio
 .portfolio
 	position: relative
+	overflow: hidden
 	&__slider
 		padding: 57px 0 19px
 .video
@@ -479,7 +489,7 @@ $blue: #5ab1be
 		+justify
 	&__member
 		margin-bottom: 40px
-		width: 170px
+		width: 169px
 		+justify-child
 		text-align: center 
 	&__img
@@ -499,8 +509,161 @@ $blue: #5ab1be
 	&__name
 		+museo700
 		font-size: 16px
-		margin-bottom: 7px  		  
-	
+		margin-bottom: 7px
+		
+//feedback
+.feedback
+	padding: 25px 0 45px
+.form
+	position: relative
+	background: #F5F5F5
+	border-radius: 5px
+	padding: 25px 45px  		  		  
+	&__title
+		margin-bottom: 50px
+		font-size: 38px
+		+museo300
+		color: #231f20
+		text-align: center
+	&__inner
+		+clr
+	&__personal
+		float: left
+		width: 338px
+		+box
+		padding-right: 58px
+	&__services
+		float: left
+		width: 386px
+	&__comment
+		float: left
+		width: 197px
+	&__subtitle
+		font-size: 15px
+		color: #231f20
+		+museo700
+		margin-bottom: 25px
+	&__checkbox
+		+clr
+	&__left
+		float: left
+		width: 226px
+	&__right
+		float: right
+		width: 160px
+	&__bottom
+		text-align: center	  		
+.input-wrap
+	display: block
+	font-size: 0
+	margin-bottom: 15px
+	span, input
+		display: inline-block
+		vertical-align: middle
+	span
+		width: 88px
+		font-size: 15px
+		color: #231f20
+		+museo300
+	input[type="text"]
+		width: 192px
+		height: 30px
+		+box
+		padding: 0 5px 
+		border-radius: 5px
+		background: #FFF
+		border: 1px solid #c7c7c7
+.textarea
+	display: block
+	resize: none
+	height: 108px
+	width: 100% 
+	+box
+	padding: 5px 
+	border-radius: 5px
+	background: #FFF
+	border: 1px solid #c7c7c7		
+.checkbox
+	position: relative
+	display: block
+	margin-bottom: 15px 
+	input
+		display: inline-block
+		vertical-align: middle
+		opacity: 0
+		width: 20px
+		height: 20px
+		margin-right: 10px 
+	input + i
+		position: absolute
+		top: 0
+		left: 0
+		width: 20px
+		height: 20px
+		+box
+		border-radius: 5px
+		background: #FFF
+		border: 1px solid #c7c7c7
+	input:checked + i
+		&:before
+			content: ""
+			position: absolute
+			top: 5px
+			left: 4px
+			+s(checkbox)	
+	span
+		display: inline-block
+		vertical-align: middle
+		+nosel
+.button
+	position: relative
+	display: inline-block
+	padding: 0 30px
+	height: 42px
+	line-height: 42px
+	color: #fff
+	font-size: 19px
+	border-radius: 5px
+	background: #f65d5d
+	border-bottom: 3px solid #ce4141  
+	&:active
+		top: 2px
+		border-bottom: 1px solid #ce4141
+		
+// footer
+.footer
+	height: 80px
+	&__right
+		float: right
+		padding-top: 25px
+		font-size: 16px
+		+museo900
+		color: #deeff2
+		text-transform: uppercase
+		span
+			display: inline-block
+			vertical-align: middle
+			margin-left: 35px
+	&__logo
+		display: inline-block
+		vertical-align: middle 
+		+s(logo-footer)
+	.phone
+		padding-top: 25px
+		margin-right: 122px
+		i
+			+s(phone-white)
+		span
+			color: #fff
+	.socials
+		padding-top: 25px
+		li
+			a
+				background: #78bfc9
+.copyrights
+	font-size: 30px
+	+museo700				 				
+
 		
 		 			
 
