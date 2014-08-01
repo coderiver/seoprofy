@@ -81,6 +81,7 @@ $blue: #5ab1be
 .header
 	position: relative
 	height: 157px
+	z-index: 999 
 	&__inner
 		position: fixed
 		top: 0
@@ -665,9 +666,215 @@ $blue: #5ab1be
 	+museo700				 				
 
 		
-		 			
 
+
+.serv
+	display: inline-block
+	width: 25% 
+	font-size: 16px 
+	line-height: 1.3 
+	cursor: pointer
+	position: relative
+	&.is-active
 		
+		&:before
+			position: absolute
+			left: 34px 
+			bottom: -20px 
+			width: 9px 
+			height: 9px 
+			background: #404445 
+			content: ' '
+			border-radius: 10px
+			
+	i
+		display: inline-block
+		vertical-align: middle
+		margin-right: 6px 
+.serv__inner
+	font-size: 0 
+	padding: 48px 0  37px 0
+.serv__text
+	display: inline-block
+	vertical-align: middle
+	
+.icon1
+	+s(icon1)
+.icon2
+	+s(icon2)
+.icon3
+	+s(icon3)
+.icon4
+	+s(icon4)	
+.ss
+	.wrap
+		border: 1px dashed #C1C1C1 
+		border-top: none 
+		border-bottom-left-radius: 10px
+		border-bottom-right-radius: 10px
+		position: relative
+		padding-left: 40px 
+		padding-right: 40px 
+	.ss__prev,.ss__next
+		position: absolute
+		top: 50%
+		margin-top: -16px  
+		cursor: pointer
+		+s(prev)
+	.ss__prev
+		left: -16px 
+	.ss__next
+		right: -16px 
+		+s(next)
+	.sss
+		padding: 40px 0px 0 0px
+		// margin-left: -50px 
+		.sss__slide
+			height: 400px 
+			position: relative
+			width: 1024px 
+			padding-top: 10px 
+			+clr
+			h2
+				font-size: 35px 
+				font-weight: normal
+				color: #231F20
+				margin-bottom: 15px 
+				line-height: 1.1 
+			.sss__price
+				float: right
+				border: 2px solid #404040 
+				border-radius: 8px
+				font-size: 54px 
+				color: #404040 
+				padding: 0 47px 0 33px
+				height: 77px
+				line-height: 77px
+				position: relative
+				margin-left: 50px 
+				span
+					font-size: 18px 
+					text-align: center
+					background: #F46763 
+					width: 33px 
+					height: 33px 
+					line-height: 33px
+					color: #fff  
+					position: absolute
+					left: -9px 
+					top: -9px 
+					border-radius: 33px
+		.sss__text 
+			p
+				font-size: 14px 
+				color: #838A8F
+				line-height: 1.3  
+				margin-bottom: 1em 
+				position: relative
+				z-index: 1 
+			ul
+				list-style: none
+				font-size: 14px 
+				color: #838A8F
+				li
+					padding-left: 12px 
+					position: relative
+					&:before
+						content: ' '
+						position: absolute
+						left: 0
+						top: .5em
+						background: #F34740
+						border-radius: 4px
+						height: 4px    
+						width: 4px 
+			h3
+				color: #231F20
+				font-size: 18px  
+				font-weight: normal
+				margin-bottom: 13px 
+			ol
+				list-style: none
+				font-size: 18px 
+				color: #231F20
+				padding-top: 10px 
+				li
+					margin-bottom: 15px 
+				span
+					width: 25px 
+					height: 25px 
+					position: relative
+					top: -3px 
+					text-align: center
+					line-height: 25px
+					font-size: 15px  
+					color: #231F20
+					border: 1px solid #231F20  
+					margin-right: 10px 
+					vertical-align: middle
+					display: inline-block
+					border-radius: 25px
+		.quote
+			position: absolute
+			right: 0px 
+			bottom: 0
+			.quote__text
+				width: 360px - 90px
+				background: #61B0BE 
+				font-size: 13px 
+				color: #FFF
+				line-height: 1.1
+				padding: 14px 40px 14px 50px 
+				border-top-left-radius: 4px
+				border-top-right-radius: 4px
+				i
+					width: 10px 
+					height: 10px 
+					background: #61B0BE
+					position: absolute
+					top: 50%
+					left: 0 
+					margin-top: -5px   
+					margin-left: -5px 
+					+transform(rotate(45deg))
+				&:before,&:after
+					position: absolute
+					content: ' '
+				&:before
+					left: 10px  
+					top: 10px 
+					+s(q1)
+				&:after
+					bottom: 10px 
+					right: 10px 
+					+s(q2)
+				p
+					color: #fff 
+					font-size: 13px 
+					color: #FFF
+					line-height: 1.2
+			.quote__name
+				position: absolute
+				width: 325px 
+				right: 360px 
+				top: 15px 
+				color: #000 
+				font-size: 21px 
+				z-index: 20 
+				span
+					font-size: 13px 
+					display: block
+					margin-top: 10px 
+			.quote__pic
+				position: absolute
+				right: 373px 
+				bottom: 0
+				img
+					display: block
+			&.quote_big
+				.quote__name
+					width: 405px 
+			
 			 		 				 
 
 

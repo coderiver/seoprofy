@@ -1,7 +1,70 @@
 head.ready(function() {
+    $('.sss__slides').cycle({
+        speed: 600,
+        fx:"scrollHorz",
+        manualSpeed: 400,
+        slides: '.sss__slide',
+        next: '.ss__next',
+        prev: '.ss__prev'
+    });
+    $('.serv').click(function(event) {
+        
+        $('.sss__slides').cycle('goto',$(this).index())
+    });
+    // $('#objs').cycle({
+    //     speed: 600,
+    //     manualSpeed: 400,
+    //     slides: '.obj'
+    // });
 
-	
-// portfolio-slider
+    $( '.sss__slides' ).on( 'cycle-before', function( event, opts ) {
+        $('.serv').removeClass('is-active');
+        $('.serv').eq(opts.nextSlide).addClass('is-active');
+        // if(opts.nextSlide==1){
+        //     $('#vi').get(0).play();
+        //     // alert('a');
+        // }
+    });
+   
+    $(document).on("scroll", onScroll);
+    
+    //smoothscroll
+    $('.menu__link').on('click', function (e) {
+        e.preventDefault();
+        $(document).off("scroll");
+        
+        $('.menu__link').each(function () {
+            $(this).removeClass('is-active');
+        })
+        $(this).addClass('is-active');
+      
+        var target = this.hash,
+            menu = target;
+        $target = $(target);
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top - 160
+        }, 500, 'swing', function () {
+            window.location.hash = target;
+            $(document).on("scroll", onScroll);
+        });
+    });
+
+    function onScroll(event){
+        var scrollPos = $(document).scrollTop();
+        $('.menu__link').each(function () {
+            var currLink = $(this);
+            var refElement = $(currLink.attr("href"));
+            if (refElement.position().top -180 <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                $('.menu__link').removeClass("is-active");
+                currLink.addClass("is-active");
+            }
+            else{
+                currLink.removeClass("is-active");
+            }
+        });
+    }
+
+
 	
 	$('.js-portfolio-slider').slick({
 		dots: true,
